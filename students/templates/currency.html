@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency Conversion</title>
+</head>
+<body>
+<h1>Currency Conversion</h1>
+
+<form action=".">
+Enter INR <input type="number" name="amount" value="{{amount}}" />
+<input type="submit" value="Convert" />
+{% if usd %}
+   <h3> USD = {{usd | floatformat:2 }} </h3>
+{% endif %}
+
+</form>
+
+</body>
+</html>

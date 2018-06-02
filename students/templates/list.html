@@ -7,10 +7,20 @@
 <body>
 <h1>List Of Courses</h1>
 
-{% for c in courses %}
-   {{c.title}}
-   <p/>
-{% endfor %}
+<table border="1" cellpadding="5pt" width="100%">
+    <tr>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Fee</th>
+    </tr>
 
+    {% for c in courses %}
+        <tr>
+            <td>{{c.title | upper }}</td>
+            <td>{{c.duration}}</td>
+            <td>{{c.fee | floatformat:'2'}}</td>
+        </tr>
+    {% endfor %}
+</table>
 </body>
 </html>

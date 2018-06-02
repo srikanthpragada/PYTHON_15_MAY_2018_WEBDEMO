@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Infomation</title>
+</head>
+<body>
+{% if country %}
+ <h2> {{country.name }} </h2>
+ <img src="{{country.flag}}" width="200px" height="150px"/>
+{% endif %}
+
+{% if not country %}
+ <h2>Sorry! Country not found!</h2>
+{% endif %}
+
+
+</body>
+</html>
