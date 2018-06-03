@@ -8,4 +8,6 @@ urlpatterns = [
     path("currency/", views.currency),
     path("country/", views.country),
     path("countryinfo/", views.countryinfo),
+    path("addcourse/", views.addcourse),
+    path("listcourses/", views.listcourses),
 ]
