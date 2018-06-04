@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title%}
+List Of Topics
+{% endblock %}
+
+{% block content %}
+<h1>List of Topics</h1>
+
+{% if topics %}
+<ul>
+    {% for t in topics %}
+       <li> {{t.2}}  - {{t.3}} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if not topics %}
+ <h3>Sorry! No topics found!</h3>
+{% endif %}
+{% endblock %}

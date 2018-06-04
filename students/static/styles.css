@@ -1,0 +1,20 @@
+.banner {
+          background-color:blue;
+          color:white;
+          font-size :24pt;
+          font-family :arial;
+          letter-spacing:3pt;
+}
+
+.menu{
+          padding-top :5px;
+          padding-bottom:5px;
+          background-color:silver;
+          font-size :12pt;
+          font-family :verdana;
+}
+
+body {
+  font-size:12pt;
+  font-family : verdana;
+}

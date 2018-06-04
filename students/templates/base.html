@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'styles.css'%}"/>
+</head>
+<body>
+<div class="banner">Students Application</div>
+<div class="menu">
+    [<a href="/students/addcourse/">Add Course</a>]
+    &nbsp;
+    [<a href="/students/addtopic/">Add Topic</a>]
+    &nbsp;
+    [<a href="/students/listcourses/">List Courses</a>]
+    &nbsp;
+    [<a href="/students/searchcourses/">Search Courses</a>]
+</div>
+<p/>
+{% block content %}
+{% endblock %}
+</body>
+</html>

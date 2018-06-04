@@ -1,12 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List Of Courses</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title%}
+List Of Courses
+{% endblock %}
 
-
-
-</body>
-</html>
+{% block content %}
+<h1>List of Courses</h1>
+<table border="1" width="100%">
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Duration (Hours)</th>
+        <th>Fee (INR)</th>
+        <th></th>
+    </tr>
+    {% for c in courses %}
+       <tr>
+           <td> {{c.0}} </td>
+           <td> {{c.1}} </td>
+           <td> {{c.2}} </td>
+           <td> {{c.3}} </td>
+           <td> <a href="/students/topics/{{c.0}}">Topics</a></td>
+       </tr>
+    {% endfor %}
+</table>
+{% endblock %}

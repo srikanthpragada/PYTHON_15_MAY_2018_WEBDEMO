@@ -34,3 +34,32 @@ def get_courses():
     finally:
         con.close()
 
+
+def get_course_titles():
+    try:
+        con = sqlite3.connect(DBNAME)
+        cur = con.cursor()
+        cur.execute("select id,title from courses")
+        courses = []
+        for c in cur.fetchall():
+             courses.append((c[0], c[1]))
+
+        return courses   # List of Tuples
+    except Exception as ex:
+        print("Error :", ex)
+        return None
+    finally:
+        con.close()
+
+def get_topics(id):
+    try:
+        con = sqlite3.connect(DBNAME)
+        cur = con.cursor()
+        cur.execute("select * from topics where courseid = ?", (id))
+        return cur.fetchall()    # List of Tuples (id,title,duration,fee)
+    except Exception as ex:
+        print("Error :", ex)
+        return None
+    finally:
+        con.close()
+

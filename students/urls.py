@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 
 urlpatterns = [
@@ -9,5 +9,7 @@ urlpatterns = [
     path("country/", views.country),
     path("countryinfo/", views.countryinfo),
     path("addcourse/", views.addcourse),
+    path("addtopic/", views.addtopic),
     path("listcourses/", views.listcourses),
+    re_path(r"topics/(\d+)", views.listtopics),
 ]

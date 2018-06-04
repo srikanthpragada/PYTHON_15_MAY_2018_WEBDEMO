@@ -1,12 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 from .models import Course
-from .forms import AddCourseForm
+from .forms import AddCourseForm, AddTopicForm
 import requests
 from . import database
 
 
 def listcourses(request):
+    """
+    Retrives all courses from Courses table
+    """
     return render(request, 'listcourses.html', {"courses": database.get_courses()})
+
+def listtopics(request,id):
+    """
+    id  is course id passed in url
+    retrieves all topics for the given course id and make it available to template
+    """
+    topics = database.get_topics(id)
+    print(len(topics))
+    return render(request, 'listtopics.html', { 'topics' : topics})
 
 
 def addcourse(request):
@@ -65,3 +77,8 @@ def currency(request):
         return render(request, 'currency.html', {"amount": amount, "usd": usd})
     else:
         return render(request, 'currency.html')
+
+
+def addtopic(request):
+    f = AddTopicForm()
+    return render(request, 'addtopic.html', { 'form' : f})
