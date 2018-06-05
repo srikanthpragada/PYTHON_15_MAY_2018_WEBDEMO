@@ -12,4 +12,8 @@ urlpatterns = [
     path("addtopic/", views.addtopic),
     path("listcourses/", views.listcourses),
     re_path(r"topics/(\d+)", views.listtopics),
+    path(r"ajax/", views.ajaxdemo),
+    path(r"coursecount/", views.coursecount),
+    path(r"searchcourses/", views.searchcourses),
+    re_path(r"search/(\w+)", views.search),
 ]

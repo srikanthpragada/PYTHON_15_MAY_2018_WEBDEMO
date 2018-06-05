@@ -51,6 +51,21 @@ def get_course_titles():
     finally:
         con.close()
 
+
+def get_courses_by_title(title):
+    try:
+        con = sqlite3.connect(DBNAME)
+        cur = con.cursor()
+        param = "%" + title + "%"
+        cur.execute("select *  from courses where title like ?", (param,))
+        # courses = []
+        return cur.fetchall()
+    except Exception as ex:
+        print("Error :", ex)
+        return None
+    finally:
+        con.close()
+
 def get_topics(id):
     try:
         con = sqlite3.connect(DBNAME)
@@ -63,3 +78,15 @@ def get_topics(id):
     finally:
         con.close()
 
+
+def get_course_count():
+    try:
+        con = sqlite3.connect(DBNAME)
+        cur = con.cursor()
+        cur.execute("select count(id) from courses")
+        return cur.fetchone()[0]
+    except Exception as ex:
+        print("Error :", ex)
+        return None
+    finally:
+        con.close()

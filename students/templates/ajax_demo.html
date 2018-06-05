@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Demo</title>
+    {% load static %}
+    <script src="{% static  'jquery.js'%}"></script>
+    <script>
+        function getCount() {
+            $.get("/students/coursecount",{}, showCount);
+        }
+        function showCount(response) {
+            $("#output").html(response);
+        }
+    </script>
+</head>
+<body>
+<button onclick="getCount()">Show Course Count </button>
+<h2 id="output"></h2>
+</body>
+</html>

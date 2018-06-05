@@ -1,8 +1,29 @@
 from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
 from .models import Course
 from .forms import AddCourseForm, AddTopicForm
 import requests
 from . import database
+
+def ajaxdemo(request):
+    return render(request, "ajax_demo.html")
+
+def coursecount(request):
+    count = database.get_course_count()
+    return HttpResponse(count)
+
+
+def searchcourses(request):
+    return render(request, 'searchcourses.html')
+
+def search(request,title):
+    courses = database.get_courses_by_title(title)
+    # print(courses)
+    result = []
+    for c in courses:
+        result.append( {"title" : c[1], "fee" : c[3]})
+
+    return JsonResponse(result, safe = False)
 
 
 def listcourses(request):
